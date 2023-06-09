@@ -17,16 +17,22 @@ spring:
           uri: lb://department-server
           predicates:
             - Path=/dept/**
+          filters:
+            - StripPrefix=1
 
         - id: emp_route
           uri: lb://employee-server
           predicates:
             - Path=/emp/**
+          filters:
+            - StripPrefix=1
 
         - id: system_route
           uri: lb://system-server
           predicates:
             - Path=/system/**
+          filters:
+            - StripPrefix=1
 
 
     sentinel:
