@@ -1,0 +1,34 @@
+server:
+  port: 5001
+
+spring:
+  application:
+    name: hrm-gateway-server
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 57135ed1-7ce6-42ff-bcbb-cb51b459017c
+
+    gateway:
+      routes:
+        - id: dept_route
+          uri: lb://department-server
+          predicates:
+            - Path=/dept/**
+
+#        - id: emp_route
+#          uri: lb://employee-server
+#          predicates:
+#            - Path=/emp/**
+#
+#        - id: system_route
+#          uri: lb://system-server
+#          predicates:
+#            - Path=/system/**
+
+
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8858

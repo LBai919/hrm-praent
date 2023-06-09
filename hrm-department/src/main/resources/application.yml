@@ -1,0 +1,23 @@
+server:
+  port: 9500
+
+spring:
+  application:
+    name: department-server
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://8.130.30.184:33306/cloud_demo_stock?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&autoReconnect=true&failOverReadOnly=false
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 57135ed1-7ce6-42ff-bcbb-cb51b459017c
+
+
+ribbon:
+  ConnectTimeout: 10000
+  ReadTimeout: 10000
